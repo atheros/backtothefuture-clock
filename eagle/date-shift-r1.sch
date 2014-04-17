@@ -6079,8 +6079,6 @@ grid 5.08 mm</description>
 <part name="SUPPLY2" library="supply2" deviceset="GND" device=""/>
 <part name="P+1" library="supply1" deviceset="VCC" device=""/>
 <part name="P+2" library="supply1" deviceset="VCC" device=""/>
-<part name="P+7" library="supply1" deviceset="VCC" device=""/>
-<part name="P+8" library="supply1" deviceset="VCC" device=""/>
 <part name="SIG_IN" library="con-lstb" deviceset="MA05-2" device=""/>
 <part name="P+9" library="supply1" deviceset="VCC" device=""/>
 <part name="SUPPLY7" library="supply2" deviceset="GND" device=""/>
@@ -6101,6 +6099,8 @@ grid 5.08 mm</description>
 <part name="R16" library="rcl" deviceset="R-EU_" device="R0805" value="220"/>
 <part name="SUPPLY4" library="supply2" deviceset="GND" device=""/>
 <part name="P+4" library="supply1" deviceset="VCC" device=""/>
+<part name="R25" library="rcl" deviceset="R-EU_" device="R0805" value="10k"/>
+<part name="R26" library="rcl" deviceset="R-EU_" device="R0805" value="10k"/>
 </parts>
 <sheets>
 <sheet>
@@ -6132,16 +6132,14 @@ grid 5.08 mm</description>
 <instance part="SUPPLY2" gate="GND" x="101.6" y="63.5"/>
 <instance part="P+1" gate="VCC" x="124.46" y="129.54"/>
 <instance part="P+2" gate="VCC" x="124.46" y="73.66"/>
-<instance part="P+7" gate="VCC" x="198.12" y="99.06"/>
-<instance part="P+8" gate="VCC" x="198.12" y="63.5"/>
 <instance part="SIG_IN" gate="G$1" x="185.42" y="137.16"/>
 <instance part="P+9" gate="VCC" x="170.18" y="127"/>
 <instance part="SUPPLY7" gate="GND" x="200.66" y="127"/>
 <instance part="SIG_OUT" gate="G$1" x="185.42" y="15.24"/>
 <instance part="P+3" gate="VCC" x="170.18" y="5.08"/>
 <instance part="SUPPLY3" gate="GND" x="200.66" y="5.08"/>
-<instance part="T1" gate="G$1" x="195.58" y="88.9"/>
-<instance part="T2" gate="G$1" x="195.58" y="53.34"/>
+<instance part="T1" gate="G$1" x="210.82" y="88.9"/>
+<instance part="T2" gate="G$1" x="210.82" y="53.34"/>
 <instance part="SV1" gate="1" x="7.62" y="149.86" rot="MR180"/>
 <instance part="IC1" gate="A" x="114.3" y="160.02" rot="MR0"/>
 <instance part="R1" gate="G$1" x="68.58" y="177.8"/>
@@ -6155,6 +6153,8 @@ grid 5.08 mm</description>
 <instance part="IC1" gate="P" x="114.3" y="180.34" rot="R270"/>
 <instance part="SUPPLY4" gate="GND" x="101.6" y="177.8"/>
 <instance part="P+4" gate="VCC" x="124.46" y="187.96"/>
+<instance part="R25" gate="G$1" x="198.12" y="88.9"/>
+<instance part="R26" gate="G$1" x="198.12" y="53.34"/>
 </instances>
 <busses>
 </busses>
@@ -6497,16 +6497,6 @@ grid 5.08 mm</description>
 <wire x1="124.46" y1="66.04" x2="124.46" y2="71.12" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<wire x1="198.12" y1="93.98" x2="198.12" y2="96.52" width="0.1524" layer="91"/>
-<pinref part="P+7" gate="VCC" pin="VCC"/>
-<pinref part="T1" gate="G$1" pin="E"/>
-</segment>
-<segment>
-<wire x1="198.12" y1="58.42" x2="198.12" y2="60.96" width="0.1524" layer="91"/>
-<pinref part="P+8" gate="VCC" pin="VCC"/>
-<pinref part="T2" gate="G$1" pin="E"/>
-</segment>
-<segment>
 <pinref part="SIG_IN" gate="G$1" pin="2"/>
 <wire x1="177.8" y1="132.08" x2="175.26" y2="132.08" width="0.1524" layer="91"/>
 <wire x1="175.26" y1="132.08" x2="175.26" y2="121.92" width="0.1524" layer="91"/>
@@ -6543,11 +6533,6 @@ grid 5.08 mm</description>
 </net>
 <net name="ODD_SIG" class="0">
 <segment>
-<wire x1="193.04" y1="88.9" x2="187.96" y2="88.9" width="0.1524" layer="91"/>
-<label x="187.96" y="88.9" size="1.778" layer="95" rot="MR0" xref="yes"/>
-<pinref part="T1" gate="G$1" pin="B"/>
-</segment>
-<segment>
 <pinref part="SIG_IN" gate="G$1" pin="9"/>
 <wire x1="193.04" y1="142.24" x2="210.82" y2="142.24" width="0.1524" layer="91"/>
 <label x="210.82" y="142.24" size="1.778" layer="95" xref="yes"/>
@@ -6557,13 +6542,13 @@ grid 5.08 mm</description>
 <wire x1="193.04" y1="20.32" x2="210.82" y2="20.32" width="0.1524" layer="91"/>
 <label x="210.82" y="20.32" size="1.778" layer="95" xref="yes"/>
 </segment>
+<segment>
+<pinref part="R25" gate="G$1" pin="1"/>
+<wire x1="193.04" y1="88.9" x2="187.96" y2="88.9" width="0.1524" layer="91"/>
+<label x="187.96" y="88.9" size="1.778" layer="95" rot="MR0" xref="yes"/>
+</segment>
 </net>
 <net name="EVEN_SIG" class="0">
-<segment>
-<wire x1="193.04" y1="53.34" x2="187.96" y2="53.34" width="0.1524" layer="91"/>
-<label x="187.96" y="53.34" size="1.778" layer="95" rot="MR0" xref="yes"/>
-<pinref part="T2" gate="G$1" pin="B"/>
-</segment>
 <segment>
 <pinref part="SIG_IN" gate="G$1" pin="10"/>
 <wire x1="177.8" y1="142.24" x2="160.02" y2="142.24" width="0.1524" layer="91"/>
@@ -6574,12 +6559,17 @@ grid 5.08 mm</description>
 <wire x1="177.8" y1="20.32" x2="160.02" y2="20.32" width="0.1524" layer="91"/>
 <label x="160.02" y="20.32" size="1.778" layer="95" rot="MR0" xref="yes"/>
 </segment>
+<segment>
+<pinref part="R26" gate="G$1" pin="1"/>
+<wire x1="193.04" y1="53.34" x2="187.96" y2="53.34" width="0.1524" layer="91"/>
+<label x="187.96" y="53.34" size="1.778" layer="95" rot="MR0" xref="yes"/>
+</segment>
 </net>
 <net name="ODD_ANODE" class="0">
 <segment>
-<wire x1="198.12" y1="83.82" x2="198.12" y2="81.28" width="0.1524" layer="91"/>
-<wire x1="198.12" y1="81.28" x2="203.2" y2="81.28" width="0.1524" layer="91"/>
-<label x="203.2" y="81.28" size="1.778" layer="95" xref="yes"/>
+<wire x1="213.36" y1="83.82" x2="213.36" y2="81.28" width="0.1524" layer="91"/>
+<wire x1="213.36" y1="81.28" x2="218.44" y2="81.28" width="0.1524" layer="91"/>
+<label x="218.44" y="81.28" size="1.778" layer="95" xref="yes"/>
 <pinref part="T1" gate="G$1" pin="C"/>
 </segment>
 <segment>
@@ -6611,9 +6601,9 @@ grid 5.08 mm</description>
 <label x="17.78" y="76.2" size="1.778" layer="95" xref="yes"/>
 </segment>
 <segment>
-<wire x1="198.12" y1="48.26" x2="198.12" y2="45.72" width="0.1524" layer="91"/>
-<wire x1="198.12" y1="45.72" x2="203.2" y2="45.72" width="0.1524" layer="91"/>
-<label x="203.2" y="45.72" size="1.778" layer="95" xref="yes"/>
+<wire x1="213.36" y1="48.26" x2="213.36" y2="45.72" width="0.1524" layer="91"/>
+<wire x1="213.36" y1="45.72" x2="218.44" y2="45.72" width="0.1524" layer="91"/>
+<label x="218.44" y="45.72" size="1.778" layer="95" xref="yes"/>
 <pinref part="T2" gate="G$1" pin="C"/>
 </segment>
 <segment>
@@ -6870,6 +6860,44 @@ grid 5.08 mm</description>
 <pinref part="R1" gate="G$1" pin="1"/>
 <wire x1="15.24" y1="160.02" x2="45.72" y2="160.02" width="0.1524" layer="91"/>
 <wire x1="45.72" y1="160.02" x2="63.5" y2="177.8" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$53" class="0">
+<segment>
+<pinref part="R26" gate="G$1" pin="2"/>
+<pinref part="T2" gate="G$1" pin="B"/>
+<wire x1="203.2" y1="53.34" x2="208.28" y2="53.34" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$54" class="0">
+<segment>
+<pinref part="T1" gate="G$1" pin="B"/>
+<pinref part="R25" gate="G$1" pin="2"/>
+<wire x1="208.28" y1="88.9" x2="203.2" y2="88.9" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="LED_PWR" class="0">
+<segment>
+<wire x1="213.36" y1="93.98" x2="213.36" y2="96.52" width="0.1524" layer="91"/>
+<pinref part="T1" gate="G$1" pin="E"/>
+<wire x1="213.36" y1="96.52" x2="218.44" y2="96.52" width="0.1524" layer="91"/>
+<label x="218.44" y="96.52" size="1.778" layer="95" xref="yes"/>
+</segment>
+<segment>
+<wire x1="213.36" y1="58.42" x2="213.36" y2="60.96" width="0.1524" layer="91"/>
+<pinref part="T2" gate="G$1" pin="E"/>
+<wire x1="213.36" y1="60.96" x2="218.44" y2="60.96" width="0.1524" layer="91"/>
+<label x="218.44" y="60.96" size="1.778" layer="95" xref="yes"/>
+</segment>
+<segment>
+<pinref part="SIG_OUT" gate="G$1" pin="8"/>
+<wire x1="177.8" y1="17.78" x2="175.26" y2="17.78" width="0.1524" layer="91"/>
+<label x="175.26" y="17.78" size="1.778" layer="95" rot="MR0" xref="yes"/>
+</segment>
+<segment>
+<pinref part="SIG_IN" gate="G$1" pin="8"/>
+<wire x1="177.8" y1="139.7" x2="175.26" y2="139.7" width="0.1524" layer="91"/>
+<label x="175.26" y="139.7" size="1.778" layer="95" rot="MR0" xref="yes"/>
 </segment>
 </net>
 </nets>
