@@ -2069,8 +2069,8 @@ design rules under a new name.</description>
 <element name="R15" library="rcl" package="R0805" value="220" x="17.78" y="14.12875" rot="MR90"/>
 <element name="R4" library="rcl" package="R0805" value="220" x="20.47875" y="19.20875" rot="MR90"/>
 <element name="R16" library="rcl" package="R0805" value="220" x="22.70125" y="14.44625" rot="MR90"/>
-<element name="R25" library="rcl" package="R0805" value="10k" x="48.26" y="54.61"/>
-<element name="R26" library="rcl" package="R0805" value="10k" x="58.42" y="55.88"/>
+<element name="R25" library="rcl" package="R0805" value="470" x="48.26" y="54.61"/>
+<element name="R26" library="rcl" package="R0805" value="470" x="58.42" y="55.88"/>
 </elements>
 <signals>
 <signal name="N$1">

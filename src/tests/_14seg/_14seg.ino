@@ -47,6 +47,7 @@
 
 
 unsigned int font[] = {
+   /*   */ ~0,
    /* A */ ~(SEG_A | SEG_B | SEG_C | SEG_E | SEG_F | SEG_P | SEG_K),
    /* B */ ~(SEG_A | SEG_B | SEG_C | SEG_D | SEG_H | SEG_M | SEG_K),
    /* C */ ~(SEG_A | SEG_D | SEG_E | SEG_F),
@@ -101,7 +102,7 @@ int maxChars = sizeof(font) / 2;
 
 #define IS_LCASE(c) (c >= 'a' && c <= 'z')
 #define IS_UCASE(c) (c >= 'A' && c <= 'Z')
-#define IS_NUM(c)   (c >= '1' && c <= '0')
+#define IS_NUM(c)   (c >= '0' && c <= '9')
 
 int tempCounter = 0;
 class SerialDisplay14 {
@@ -141,18 +142,11 @@ public:
 //    tempCounter++;
     for(byte i = start; i < length; i+= 4) {
       //shiftOut(dataPin, clockPin, MSBFIRST, segment_char[buffer[length - i - 1]]);
-      c = buffer[length - i - 1];
-      if (IS_LCASE(c)) {
-        glyth = font[c - 'a'];
-      } else if (IS_UCASE(c)) {
-        glyth = font[c - 'A'];
-      } else if (IS_NUM(c)) {
-        glyth = font[c - '1' + ('Z' - 'A')];
-      } else {
-        glyth = ~0;
-      }
+      //glyth = font[buffer[length - i - 1]];
+      glyth = font[buffer[i]];
+
       //glyth = ~(1 << ((tempCounter >> 8 + i) % 15));
-      glyth = font[(tempCounter + i) % maxChars];
+      //glyth = font[(tempCounter + i) % maxChars];
       shiftOut(dataPin, clockPin, MSBFIRST, glyth & 0xff);
       shiftOut(dataPin, clockPin, MSBFIRST, glyth >> 8);
       //shiftOut(dataPin, clockPin, MSBFIRST, glyth >> 8);
@@ -174,17 +168,23 @@ public:
     } else if (len > length) {
       len = length;
     }
-     
+    byte glythId, c;
+    
     for (byte i = 0; i < len; i++) {
-      byte c = text[i];
-//      if (c >= '0' && c <= '9') {
-//        c = c - '0';
-//      } else if (c == '.') {
-//        c = 10;
-//      } else {
-//        c = 11;
-//      }
-      buffer[i] = c;
+      c = text[i];
+      if (IS_LCASE(c)) {
+        glythId = c - 'a' + 1;
+      } else if (IS_UCASE(c)) {
+        glythId = c - 'A' + 1;
+      } else if (IS_NUM(c)) {
+        glythId = c - '1' + ('Z' - 'A') + 1;
+      } else if (c == ' ') {
+        glythId = 0;
+      } else {
+        // default "missing character" glyth?
+        glythId = 0;
+      }
+      buffer[i] = glythId;
     }
     
 //    update();
@@ -217,6 +217,21 @@ bool counterActive = false;
 
 int counter_msb = 0, counter = 0;
 
+char* months[12] = {
+  "JAN ",
+  "FEB ",
+  "MAR ",
+  "APR ",
+  "MAY ",
+  "JUNE",
+  "JULY",
+  "AUG ",
+  "SEPT",
+  "OCT ",
+  "NOV ",
+  "DEC "
+};
+
 void loop() {
     while (Serial.available()) {
       byte c = Serial.read();
@@ -237,9 +252,9 @@ void loop() {
     
     if (counter_msb == 0 && counterActive) {
       char buffer[10];
-      sprintf(buffer, "%4d", counter);
+      //sprintf(buffer, "%4d", counter);
       //Serial.println(buffer);
-      display.write(buffer, 4);
+      display.write(months[counter % 12], 4);
       counter++;
       if (counter == 10000) {
         counter = 0;
@@ -249,7 +264,7 @@ void loop() {
     if (counterActive) {
       counter_msb++;
     }
-    if (counter_msb == 500) {
+    if (counter_msb == 1000) {
       counter_msb = 0;
     }
     // update the display

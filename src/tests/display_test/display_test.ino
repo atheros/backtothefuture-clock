@@ -14,7 +14,7 @@
  *  AAA
  * F   B
  * F   B
- *  GGG
+ *  GGGn
  * E   C
  * E   C
  *  DDD P
@@ -90,10 +90,10 @@ public:
 //      shiftOut(dataPin, clockPin, MSBFIRST, segment_char[buffer[i]]);
       shiftOut(dataPin, clockPin, MSBFIRST, segment_char[buffer[length - i - 1]]);
       //shiftOut(dataPin, clockPin, MSBFIRST, segment_char[length - i - 1]);
-      Serial.print(buffer[length - i - 1]);
-      Serial.print(" ");
+//      Serial.print(buffer[length - i - 1]);
+//      Serial.print(" ");
     }
-    Serial.println();
+//    Serial.println();
     digitalWrite(latchPin, HIGH);
 
     if (currentDisplay == 0) {
@@ -130,10 +130,10 @@ public:
   }
 };
 
-SerialDisplay display(6, PIN_DATA, PIN_CLOCK, PIN_LATCH, PIN_CH_ODD, PIN_CH_EVEN);
+SerialDisplay display(12, PIN_DATA, PIN_CLOCK, PIN_LATCH, PIN_CH_ODD, PIN_CH_EVEN);
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   // put your setup code here, to run once:
   pinMode(PIN_DATA, OUTPUT);
   pinMode(PIN_CLOCK, OUTPUT);
@@ -219,7 +219,7 @@ void loop() {
   } else if (mode == 1) {
     // current tests
     // write some incresing value to the display
-    while (Serial.available()) {
+/*    while (Serial.available()) {
       byte c = Serial.read();
       if (c == 'q') {
         // disable output
@@ -231,13 +231,17 @@ void loop() {
         // toggle counter
         counterActive = !counterActive;
       }
-      
+ 
     }
+    */
     if (counter_msb == 0) {
       char buffer[10];
-      sprintf(buffer, "%6d", counter);
+      //sprintf(buffer, "%6d", counter);
+//      sprintf(buffer, "%i%i%i%i%i%i", counter % 2 ? 1 : 8, counter % 2 == 0 ? 1 : 8);
+//      sprintf(buffer, "123456");
+      sprintf(buffer, "123456123456");
       //Serial.println(buffer);
-      display.write(buffer, 6);
+      display.write(buffer, 12);
       counter++;
       if (counter == 10000) {
         counter = 0;
@@ -246,7 +250,7 @@ void loop() {
     if (counterActive) {
       counter_msb++;
     }
-    if (counter_msb == 10) {
+    if (counter_msb == 50) {
       counter_msb = 0;
     }
     // update the display

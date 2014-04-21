@@ -6036,9 +6036,10 @@ grid 5.08 mm</description>
 <part name="R15" library="rcl" deviceset="R-EU_" device="R0805" value="220"/>
 <part name="R4" library="rcl" deviceset="R-EU_" device="R0805" value="220"/>
 <part name="R16" library="rcl" deviceset="R-EU_" device="R0805" value="220"/>
-<part name="R25" library="rcl" deviceset="R-EU_" device="R0805" value="10k"/>
-<part name="R26" library="rcl" deviceset="R-EU_" device="R0805" value="10k"/>
+<part name="R25" library="rcl" deviceset="R-EU_" device="R0805" value="470"/>
+<part name="R26" library="rcl" deviceset="R-EU_" device="R0805" value="470"/>
 <part name="SV1" library="con-lstb" deviceset="MA05-1" device=""/>
+<part name="SV3" library="con-lstb" deviceset="MA05-1" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -6085,6 +6086,7 @@ grid 5.08 mm</description>
 <instance part="R25" gate="G$1" x="198.12" y="88.9"/>
 <instance part="R26" gate="G$1" x="198.12" y="53.34"/>
 <instance part="SV1" gate="G$1" x="7.62" y="157.48" rot="MR180"/>
+<instance part="SV3" gate="G$1" x="71.12" y="157.48" rot="R180"/>
 </instances>
 <busses>
 </busses>
@@ -6612,12 +6614,18 @@ grid 5.08 mm</description>
 <segment>
 <pinref part="R3" gate="G$1" pin="2"/>
 <wire x1="40.64" y1="170.18" x2="48.26" y2="170.18" width="0.1524" layer="91"/>
+<pinref part="SV3" gate="G$1" pin="1"/>
+<wire x1="63.5" y1="162.56" x2="55.88" y2="162.56" width="0.1524" layer="91"/>
+<wire x1="55.88" y1="162.56" x2="48.26" y2="170.18" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$39" class="0">
 <segment>
 <pinref part="R4" gate="G$1" pin="2"/>
 <wire x1="40.64" y1="160.02" x2="48.26" y2="160.02" width="0.1524" layer="91"/>
+<pinref part="SV3" gate="G$1" pin="3"/>
+<wire x1="63.5" y1="157.48" x2="50.8" y2="157.48" width="0.1524" layer="91"/>
+<wire x1="50.8" y1="157.48" x2="48.26" y2="160.02" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$53" class="0">
@@ -6690,6 +6698,28 @@ grid 5.08 mm</description>
 <wire x1="17.78" y1="162.56" x2="25.4" y2="170.18" width="0.1524" layer="91"/>
 <pinref part="R3" gate="G$1" pin="1"/>
 <wire x1="25.4" y1="170.18" x2="30.48" y2="170.18" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$42" class="0">
+<segment>
+<pinref part="SV1" gate="G$1" pin="5"/>
+<wire x1="15.24" y1="152.4" x2="63.5" y2="152.4" width="0.1524" layer="91"/>
+<pinref part="SV3" gate="G$1" pin="5"/>
+</segment>
+</net>
+<net name="N$43" class="0">
+<segment>
+<pinref part="SV3" gate="G$1" pin="2"/>
+<pinref part="R15" gate="G$1" pin="2"/>
+<wire x1="63.5" y1="160.02" x2="53.34" y2="160.02" width="0.1524" layer="91"/>
+<wire x1="53.34" y1="160.02" x2="48.26" y2="165.1" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$44" class="0">
+<segment>
+<pinref part="SV3" gate="G$1" pin="4"/>
+<pinref part="R16" gate="G$1" pin="2"/>
+<wire x1="63.5" y1="154.94" x2="48.26" y2="154.94" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>

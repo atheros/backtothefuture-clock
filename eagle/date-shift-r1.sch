@@ -6099,8 +6099,8 @@ grid 5.08 mm</description>
 <part name="R16" library="rcl" deviceset="R-EU_" device="R0805" value="220"/>
 <part name="SUPPLY4" library="supply2" deviceset="GND" device=""/>
 <part name="P+4" library="supply1" deviceset="VCC" device=""/>
-<part name="R25" library="rcl" deviceset="R-EU_" device="R0805" value="10k"/>
-<part name="R26" library="rcl" deviceset="R-EU_" device="R0805" value="10k"/>
+<part name="R25" library="rcl" deviceset="R-EU_" device="R0805" value="470"/>
+<part name="R26" library="rcl" deviceset="R-EU_" device="R0805" value="470"/>
 </parts>
 <sheets>
 <sheet>
