@@ -10,6 +10,8 @@
 // signal to enable display output
 #define PIN_OUTPUT_E 7
 
+#define PIN_PWM 3
+
 /**
  *  AAA
  * F   B
@@ -143,11 +145,14 @@ void setup() {
   pinMode(PIN_RESET, OUTPUT);
   pinMode(PIN_OUTPUT_E, OUTPUT);
   
+
+  pinMode(PIN_PWM, OUTPUT);
+
     digitalWrite(PIN_RESET, LOW);
     digitalWrite(PIN_RESET, HIGH);
     digitalWrite(PIN_OUTPUT_E, LOW);
-
   
+  analogWrite(PIN_PWM, 127);
 }
 
 byte counter_msb = 0;
@@ -219,6 +224,13 @@ void loop() {
   } else if (mode == 1) {
     // current tests
     // write some incresing value to the display
+    while (Serial.available()) {
+      byte c = Serial.read();
+      if (c >= '0' && c <= '9') {
+        analogWrite(PIN_PWM, 255.0 / 10 * (c + 1));
+        
+      }
+    }
 /*    while (Serial.available()) {
       byte c = Serial.read();
       if (c == 'q') {
@@ -260,6 +272,7 @@ void loop() {
   }
 
   
+
   //i++;
 //  if (i > 9) i = 0;
 

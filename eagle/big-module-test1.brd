@@ -6,22 +6,22 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.0125" unitdist="inch" unit="inch" style="dots" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.025" unitdist="inch" unit="inch" style="dots" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
+<layer number="1" name="Top" color="4" fill="1" visible="no" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
-<layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
+<layer number="19" name="Unrouted" color="6" fill="1" visible="no" active="yes"/>
 <layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="27" name="tValues" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="28" name="bValues" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="no" active="yes"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="no" active="yes"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="yes"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="yes"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="no" active="yes"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="no" active="yes"/>
+<layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
+<layer number="28" name="bValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
 <layer number="30" name="bStop" color="7" fill="6" visible="no" active="yes"/>
 <layer number="31" name="tCream" color="7" fill="4" visible="no" active="yes"/>
@@ -32,20 +32,20 @@
 <layer number="36" name="bGlue" color="7" fill="5" visible="no" active="yes"/>
 <layer number="37" name="tTest" color="7" fill="1" visible="no" active="yes"/>
 <layer number="38" name="bTest" color="7" fill="1" visible="no" active="yes"/>
-<layer number="39" name="tKeepout" color="4" fill="11" visible="yes" active="yes"/>
-<layer number="40" name="bKeepout" color="1" fill="11" visible="yes" active="yes"/>
-<layer number="41" name="tRestrict" color="4" fill="10" visible="yes" active="yes"/>
-<layer number="42" name="bRestrict" color="1" fill="10" visible="yes" active="yes"/>
-<layer number="43" name="vRestrict" color="2" fill="10" visible="yes" active="yes"/>
+<layer number="39" name="tKeepout" color="4" fill="11" visible="no" active="yes"/>
+<layer number="40" name="bKeepout" color="1" fill="11" visible="no" active="yes"/>
+<layer number="41" name="tRestrict" color="4" fill="10" visible="no" active="yes"/>
+<layer number="42" name="bRestrict" color="1" fill="10" visible="no" active="yes"/>
+<layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="yes"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
-<layer number="45" name="Holes" color="7" fill="1" visible="no" active="yes"/>
+<layer number="45" name="Holes" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
 <layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
-<layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="49" name="Reference" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="48" name="Document" color="7" fill="1" visible="no" active="yes"/>
+<layer number="49" name="Reference" color="7" fill="1" visible="no" active="yes"/>
 <layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
-<layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="51" name="tDocu" color="7" fill="1" visible="no" active="yes"/>
+<layer number="52" name="bDocu" color="7" fill="1" visible="no" active="yes"/>
 <layer number="53" name="tGND_GNDA" color="7" fill="9" visible="no" active="no"/>
 <layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
 <layer number="91" name="Nets" color="2" fill="1" visible="no" active="no"/>
@@ -66,9 +66,9 @@
 <board>
 <plain>
 <wire x1="0" y1="0" x2="50.7875" y2="0" width="0.254" layer="20"/>
-<wire x1="50.7875" y1="0" x2="50.7875" y2="39.36" width="0.254" layer="20"/>
-<wire x1="50.7875" y1="39.36" x2="0" y2="39.36" width="0.254" layer="20"/>
-<wire x1="0" y1="39.36" x2="0" y2="0" width="0.254" layer="20"/>
+<wire x1="50.7875" y1="0" x2="50.7875" y2="38.725" width="0.254" layer="20"/>
+<wire x1="50.7875" y1="38.725" x2="0" y2="38.725" width="0.254" layer="20"/>
+<wire x1="0" y1="38.725" x2="0" y2="0" width="0.254" layer="20"/>
 <rectangle x1="1.27" y1="0" x2="49.53" y2="7.62" layer="41"/>
 <rectangle x1="1.905" y1="13.6525" x2="3.175" y2="14.9225" layer="41"/>
 <rectangle x1="4.445" y1="13.6525" x2="5.715" y2="14.9225" layer="41"/>
@@ -108,6 +108,10 @@
 <rectangle x1="1.905" y1="28.8925" x2="3.175" y2="30.1625" layer="41"/>
 <rectangle x1="0.635" y1="27.94" x2="50.8" y2="32.385" layer="43"/>
 <rectangle x1="0" y1="11.43" x2="50.165" y2="15.875" layer="43"/>
+<hole x="47.625" y="35.56" drill="3.2"/>
+<hole x="3.175" y="35.56" drill="3.2"/>
+<text x="44.45" y="20.955" size="1.778" layer="16" rot="MR0">14SEG</text>
+<text x="44.45" y="17.78" size="1.778" layer="16" rot="MR0">REV1</text>
 </plain>
 <libraries>
 <library name="eagle-library-edeca.net-v5-mix">
@@ -779,9 +783,9 @@ design rules under a new name.</description>
 <wire x1="40.894" y1="23.749" x2="44.45" y2="27.305" width="0.254" layer="16"/>
 <wire x1="4.191" y1="23.749" x2="40.894" y2="23.749" width="0.254" layer="16"/>
 <wire x1="1.27" y1="26.67" x2="4.191" y2="23.749" width="0.254" layer="16"/>
-<wire x1="1.27" y1="30.607" x2="1.27" y2="26.67" width="0.254" layer="16"/>
-<wire x1="7.493" y1="36.83" x2="1.27" y2="30.607" width="0.254" layer="16"/>
-<wire x1="12.827" y1="36.83" x2="7.493" y2="36.83" width="0.254" layer="16"/>
+<wire x1="1.27" y1="29.972" x2="1.27" y2="26.67" width="0.254" layer="16"/>
+<wire x1="8.128" y1="36.83" x2="1.27" y2="29.972" width="0.254" layer="16"/>
+<wire x1="12.827" y1="36.83" x2="8.128" y2="36.83" width="0.254" layer="16"/>
 <wire x1="14.2875" y1="35.052" x2="14.31925" y2="35.33775" width="0.254" layer="16"/>
 <contactref element="SV2" pad="9"/>
 <wire x1="14.31925" y1="35.33775" x2="12.827" y2="36.83" width="0.254" layer="16"/>
@@ -909,8 +913,8 @@ design rules under a new name.</description>
 <wire x1="34.29" y1="32.0675" x2="34.25825" y2="32.03575" width="0.254" layer="16"/>
 <contactref element="SV2" pad="1"/>
 <wire x1="34.25825" y1="32.03575" x2="33.02" y2="30.7975" width="0.254" layer="16"/>
-<wire x1="34.29" y1="34.925" x2="34.29" y2="32.004" width="0.254" layer="16"/>
-<wire x1="34.29" y1="32.004" x2="34.25825" y2="32.03575" width="0.254" layer="16"/>
+<wire x1="34.29" y1="34.925" x2="34.29" y2="32.3215" width="0.254" layer="16"/>
+<wire x1="34.29" y1="32.3215" x2="34.25825" y2="32.03575" width="0.254" layer="16"/>
 </signal>
 <signal name="N$20">
 <contactref element="U$2" pad="P$11"/>
@@ -922,8 +926,8 @@ design rules under a new name.</description>
 </signal>
 <signal name="N$19">
 <polygon width="0.254" layer="16">
-<vertex x="0" y="39.37"/>
-<vertex x="50.8" y="39.37"/>
+<vertex x="-0.3175" y="38.735"/>
+<vertex x="50.4825" y="38.735"/>
 <vertex x="50.8" y="0"/>
 <vertex x="0" y="0"/>
 </polygon>
