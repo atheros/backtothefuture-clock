@@ -132,7 +132,7 @@ public:
   }
 };
 
-SerialDisplay display(12, PIN_DATA, PIN_CLOCK, PIN_LATCH, PIN_CH_ODD, PIN_CH_EVEN);
+SerialDisplay display(20, PIN_DATA, PIN_CLOCK, PIN_LATCH, PIN_CH_ODD, PIN_CH_EVEN);
 
 void setup() {
   Serial.begin(115200);
@@ -247,13 +247,13 @@ void loop() {
     }
     */
     if (counter_msb == 0) {
-      char buffer[10];
+      char buffer[25];
       //sprintf(buffer, "%6d", counter);
 //      sprintf(buffer, "%i%i%i%i%i%i", counter % 2 ? 1 : 8, counter % 2 == 0 ? 1 : 8);
 //      sprintf(buffer, "123456");
-      sprintf(buffer, "123456123456");
+      sprintf(buffer, "25201409242920141000");
       //Serial.println(buffer);
-      display.write(buffer, 12);
+      display.write(buffer, 20);
       counter++;
       if (counter == 10000) {
         counter = 0;

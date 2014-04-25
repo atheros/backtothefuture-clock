@@ -5570,7 +5570,7 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <part name="A4567" library="con-lstb" deviceset="MA04-1" device=""/>
 <part name="T1" library="transistor" deviceset="*-NPN-" device="TO92-CBE" technology="BC337-40"/>
 <part name="P+6" library="supply1" deviceset="VCC" device=""/>
-<part name="R1" library="rcl" deviceset="R-EU_" device="0207/2V" value="440"/>
+<part name="R1" library="rcl" deviceset="R-EU_" device="0207/2V" value="470"/>
 </parts>
 <sheets>
 <sheet>
