@@ -32,9 +32,9 @@
 #define CH_9 (SEG_A | SEG_B | SEG_C | SEG_D | SEG_F | SEG_G)
 
 // characters
-byte segment_char[12] = {~CH_0, ~CH_1, ~CH_2, ~CH_3, ~CH_4, ~CH_5, ~CH_6, ~CH_7, ~CH_8, ~CH_9, ~SEG_P, 0xff};
+static byte segment_char[12] = {~CH_0, ~CH_1, ~CH_2, ~CH_3, ~CH_4, ~CH_5, ~CH_6, ~CH_7, ~CH_8, ~CH_9, ~SEG_P, 0xff};
 // all segments
-byte segments[8] = {SEG_A, SEG_B, SEG_C, SEG_D, SEG_E, SEG_F, SEG_G, SEG_P};
+static byte segments[8] = {SEG_A, SEG_B, SEG_C, SEG_D, SEG_E, SEG_F, SEG_G, SEG_P};
 
 
 #define HIDDEN	1

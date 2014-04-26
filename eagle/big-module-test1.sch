@@ -792,9 +792,10 @@ W = angled&lt;p&gt;
 <wire x1="121.92" y1="134.62" x2="86.36" y2="134.62" width="0.1524" layer="91"/>
 <wire x1="86.36" y1="134.62" x2="86.36" y2="81.28" width="0.1524" layer="91"/>
 <wire x1="86.36" y1="81.28" x2="86.36" y2="7.62" width="0.1524" layer="91"/>
-<wire x1="124.46" y1="81.28" x2="86.36" y2="81.28" width="0.1524" layer="91"/>
+<wire x1="121.92" y1="81.28" x2="86.36" y2="81.28" width="0.1524" layer="91"/>
 <junction x="86.36" y="81.28"/>
 <pinref part="SV2" gate="1" pin="4"/>
+<pinref part="U$2" gate="G$1" pin="A"/>
 </segment>
 </net>
 <net name="N$16" class="0">
