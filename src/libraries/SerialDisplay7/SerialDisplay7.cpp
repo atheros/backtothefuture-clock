@@ -41,13 +41,18 @@ static byte segments[8] = {SEG_A, SEG_B, SEG_C, SEG_D, SEG_E, SEG_F, SEG_G, SEG_
 #define BLINK	2
 
 
-SerialDisplay7::SerialDisplay7(byte length, byte dataPin, byte clockPin, byte latchPin, byte oddPin, byte evenPin)
+SerialDisplay7::SerialDisplay7(byte length, byte dataPin, byte clockPin, byte latchPin, byte oddPin, byte evenPin, byte ledModules)
 : length(length), dataPin(dataPin), clockPin(clockPin), latchPin(latchPin), oddPin(oddPin), evenPin(evenPin), currentDisplay(0) {
+	ledBytes = 2 * ledModules;
 	buffer = (byte*)malloc(length);
 	attributes = (byte*)malloc(length);
+	leds = (byte*)malloc(ledBytes);
 	write(NULL, 0);
 	digitalWrite(oddPin, HIGH);
 	digitalWrite(evenPin, HIGH);
+	for(byte i = 0; i < ledBytes; i++) {
+		leds[i] = 0;
+	}
 }
 
 void SerialDisplay7::update() {
@@ -65,6 +70,14 @@ void SerialDisplay7::update() {
 	// begin writing
 	digitalWrite(latchPin, LOW);
 	byte c, attr;
+	
+	// write leds
+	for (byte i = start; i < ledBytes; i += 2) {
+		shiftOut(dataPin, clockPin, MSBFIRST, ~leds[i]);
+		shiftOut(dataPin, clockPin, MSBFIRST, 0);// DEBUG
+	}
+	
+	//. write numbers
 	for (byte i = start; i < length; i += 2) {
 		// get character to write and respect attributes
 		attr = attributes[length - i - 1];
@@ -75,6 +88,7 @@ void SerialDisplay7::update() {
 			// normal character
 			c = segment_char[buffer[length - i - 1]];
 		}
+		//c = 0; // DEBUG
 		shiftOut(dataPin, clockPin, MSBFIRST, c);
 	}
 	// finish writing
@@ -140,6 +154,15 @@ void SerialDisplay7::unblink(byte start, byte len) {
 	}
 }
 
+void SerialDisplay7::setLED(int led, bool on) {
+	byte bit = led % 8;
+	byte idx = led / 8;
+	if (on) {
+		leds[idx] |= 1<<bit;
+	} else {
+		leds[idx] = leds[idx] & ~(1<<bit);
+	}
+}
 
 
 
