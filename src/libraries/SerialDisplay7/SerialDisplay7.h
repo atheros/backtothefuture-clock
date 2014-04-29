@@ -13,6 +13,8 @@ private:
 	byte currentDisplay;
 	byte dataPin, clockPin, latchPin, oddPin, evenPin;
 	byte ledBytes;
+	
+	bool blinkCycle;
 
 public:
 	SerialDisplay7(byte length, byte dataPin, byte clockPin, byte latchPin, byte oddPin, byte evenPin, byte ledModules);
@@ -25,6 +27,8 @@ public:
 	void blink(byte start, byte len);
 	void unblink(byte start, byte len);
 	void setLED(int led, bool on);
+	
+	void updateBlink(bool v) { blinkCycle = v; };
 };
 
 #endif /* !__SERIALDISPLAY7_H */

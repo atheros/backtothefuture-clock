@@ -42,10 +42,11 @@ static byte segments[8] = {SEG_A, SEG_B, SEG_C, SEG_D, SEG_E, SEG_F, SEG_G, SEG_
 
 
 SerialDisplay7::SerialDisplay7(byte length, byte dataPin, byte clockPin, byte latchPin, byte oddPin, byte evenPin, byte ledModules)
-: length(length), dataPin(dataPin), clockPin(clockPin), latchPin(latchPin), oddPin(oddPin), evenPin(evenPin), currentDisplay(0) {
+: length(length), dataPin(dataPin), clockPin(clockPin), latchPin(latchPin), oddPin(oddPin), evenPin(evenPin), currentDisplay(0), blinkCycle(true) {
 	ledBytes = 2 * ledModules;
 	buffer = (byte*)malloc(length);
 	attributes = (byte*)malloc(length);
+	resetAttributes();
 	leds = (byte*)malloc(ledBytes);
 	write(NULL, 0);
 	digitalWrite(oddPin, HIGH);
@@ -73,15 +74,15 @@ void SerialDisplay7::update() {
 	
 	// write leds
 	for (byte i = start; i < ledBytes; i += 2) {
-		shiftOut(dataPin, clockPin, MSBFIRST, ~leds[i]);
-		shiftOut(dataPin, clockPin, MSBFIRST, 0);// DEBUG
+//		shiftOut(dataPin, clockPin, MSBFIRST, ~leds[i]);
+//		shiftOut(dataPin, clockPin, MSBFIRST, 0);// DEBUG
 	}
 	
 	//. write numbers
 	for (byte i = start; i < length; i += 2) {
 		// get character to write and respect attributes
 		attr = attributes[length - i - 1];
-		if (attr & HIDDEN) {
+		if (attr & HIDDEN || ((attr & BLINK) && blinkCycle)) {
 			// character is hidden
 			c = segment_char[11];
 		} else {
